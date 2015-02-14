@@ -6,7 +6,7 @@
 /*   By: tfleming <tfleming@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/04 16:23:47 by tfleming          #+#    #+#             */
-/*   Updated: 2015/02/14 17:55:28 by tfleming         ###   ########.fr       */
+/*   Updated: 2015/02/14 18:01:34 by tfleming         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void				mlx_draw_line(t_environment *env
 	while (1)
 	{
 		mlx_pixel_put(env->mlx, env->window, drawer.x_start, drawer.y_start
-					  , mlx_rgb_to_color(255, 255, 255));
+						, mlx_rgb_to_color(255, 255, 255));
 		if (drawer.x_start == drawer.x_end && drawer.y_start == drawer.y_end)
 			break ;
 		if (drawer.error > -drawer.x_slope)
