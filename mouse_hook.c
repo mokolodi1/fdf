@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mlx.c                                           :+:      :+:    :+:   */
+/*   mouse_hook.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tfleming <tfleming@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/01 19:02:15 by tfleming          #+#    #+#             */
-/*   Updated: 2014/12/03 20:18:21 by tfleming         ###   ########.fr       */
+/*   Created: 2015/02/14 17:08:49 by tfleming          #+#    #+#             */
+/*   Updated: 2015/02/14 17:11:33 by tfleming         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int				ft_mlx_color_between(int first, int second
-										, double percent_first)
+int		mouse_hook(int button, int x, int y, t_environment *env)
 {
-	return (first * percent_first + second * (1 - percent_first));
-}
-
-int				ft_mlx_to_color(int red, int green, int blue)
-{
-	return (red * 256 * 256 + green * 256 + blue);
+	(void)env;
+	ft_putstr("x = ");
+	ft_putnbr(x);
+	ft_putstr("\ty = ");
+	ft_putnbr(y);
+	ft_putstr("\tbutton = ");
+	ft_putnbr(button);
+	ft_putchar('\n');
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: tfleming <tfleming@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/02 16:20:59 by tfleming          #+#    #+#             */
-/*   Updated: 2015/01/31 17:33:20 by tfleming         ###   ########.fr       */
+/*   Updated: 2015/02/14 17:12:19 by tfleming         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,10 +94,11 @@ int				main(int argc, char **argv)
 	fd = open(argv[1], O_RDONLY);
 	do_line(fd, &curr_ints, &width);
 	if (width <= 0)
-		ft_putendl_exit("Must have at least one line of data\n", 1);
+		ft_putendl_exit("Must have at least one line of data", 1);
 	ft_list_push_back(&int_list, curr_ints);
 	height = 1;
 	process_rest(fd, &int_list, width, &height);
-	fdf(convert_to_intarr(&int_list, width, height), PIXEL_WIDTH, PIXEL_HEIGHT);
+	handle_fdf(convert_to_intarr(&int_list, width, height)
+					, PIXEL_WIDTH, PIXEL_HEIGHT);
 	return (0);
 }

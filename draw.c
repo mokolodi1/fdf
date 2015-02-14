@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.c                                              :+:      :+:    :+:   */
+/*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tfleming <tfleming@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/28 13:35:32 by tfleming          #+#    #+#             */
-/*   Updated: 2015/01/31 18:02:09 by tfleming         ###   ########.fr       */
+/*   Created: 2015/02/14 17:03:41 by tfleming          #+#    #+#             */
+/*   Updated: 2015/02/14 18:00:04 by tfleming         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,9 @@ static void		draw_horizontal(t_environment *env
 	i = 0;
 	while (i < env->array->width - 1)
 	{
-		ft_mlx_draw_line(env
-							, &(points[y * env->array->width + i])
-							, &(points[y * env->array->width + i + 1]));
+		mlx_draw_line(env
+						, &(points[y * env->array->width + i])
+						, &(points[y * env->array->width + i + 1]));
 		i++;
 	}
 }
@@ -69,9 +69,9 @@ static void		draw_vertical(t_environment *env
 	i = 0;
 	while (i < env->array->height - 1)
 	{
-		ft_mlx_draw_line(env
-							, &(points[i * env->array->width + x])
-							, &(points[(i + 1) * env->array->width + x]));
+		mlx_draw_line(env
+						, &(points[i * env->array->width + x])
+						, &(points[(i + 1) * env->array->width + x]));
 		i++;
 	}
 }
@@ -83,6 +83,8 @@ void			draw(t_environment *env)
 
 	calculate_points(env, points);
 	i = 0;
+	if (env->array->height == 1 && env->array->width == 1)
+		mlx_draw_line(env, &points[0], &points[0]);
 	while (i < env->array->height)
 	{
 		draw_horizontal(env, points, i);
@@ -94,25 +96,4 @@ void			draw(t_environment *env)
 		draw_vertical(env, points, i);
 		i++;
 	}
-}
-
-void			fdf(t_intarr *array
-					, int pixel_width
-					, int pixel_height)
-{
-	t_environment		env;
-
-	env.mlx = mlx_init();
-	env.window = mlx_new_window(env.mlx, pixel_width, pixel_height
-								, WINDOW_TITLE);
-	env.array = array;
-	env.width = pixel_width;
-	env.height = pixel_height;
-	env.left_const = 20;
-	env.right_const = 20;
-	env.z_const = 50;
-	mlx_expose_hook(env.window, ft_expose_hook, &env);
-	mlx_key_hook(env.window, ft_key_hook, &env);
-	mlx_mouse_hook (env.window, ft_mouse_hook, &env);
-	mlx_loop(env.mlx);
 }

@@ -6,14 +6,14 @@
 #    By: tfleming <tfleming@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/04 17:52:57 by tfleming          #+#    #+#              #
-#    Updated: 2014/12/05 14:12:20 by tfleming         ###   ########.fr        #
+#    Updated: 2015/02/14 17:55:32 by tfleming         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 NAME =			fdf
 
 CC =			gcc
-FLAGS =			-Wall -Werror -Wextra
+FLAGS =			-Wall -Werror -Wextra -g
 LIBFT =			"libft/"
 X11 =			"/usr/X11/lib"
 
@@ -21,10 +21,13 @@ INC_FLAGS =		-I $(LIBFT)
 LIB_FLAGS =		-L $(LIBFT) -L $(X11)
 
 COMPILED =		main.o \
-				fdf.o \
-				ft_mlx.o \
-				fdf_mlx_draw_line.o \
-				ft_mlx_hooks.o
+				handle_fdf.o \
+				draw.o \
+				mlx_draw_line.o \
+				mlx_rgb_to_color.o \
+				expose_hook.o \
+				mouse_hook.o \
+				key_hook.o
 
 all: $(NAME)
 

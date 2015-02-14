@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_mlx_draw_line.c                                :+:      :+:    :+:   */
+/*   mlx_draw_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tfleming <tfleming@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/04 16:23:47 by tfleming          #+#    #+#             */
-/*   Updated: 2015/01/31 17:57:03 by tfleming         ###   ########.fr       */
+/*   Updated: 2015/02/14 17:55:28 by tfleming         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void			y_move(t_drawer *drawer)
 	drawer->y_start += drawer->y_start < drawer->y_end ? 1 : -1;
 }
 
-void				ft_mlx_draw_line(t_environment *env
+void				mlx_draw_line(t_environment *env
 										, t_point *start, t_point *end)
 {
 	t_drawer		drawer;
@@ -45,7 +45,7 @@ void				ft_mlx_draw_line(t_environment *env
 	while (1)
 	{
 		mlx_pixel_put(env->mlx, env->window, drawer.x_start, drawer.y_start
-						, ft_mlx_to_color(255, 255, 255));
+					  , mlx_rgb_to_color(255, 255, 255));
 		if (drawer.x_start == drawer.x_end && drawer.y_start == drawer.y_end)
 			break ;
 		if (drawer.error > -drawer.x_slope)
