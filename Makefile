@@ -16,9 +16,10 @@ CC =			gcc
 FLAGS =			-Wall -Werror -Wextra
 LIBFT =			"libft/"
 X11 =			"/usr/X11/lib"
+MLX =			"minilibx/"
 
-INC_FLAGS =		-I $(LIBFT)
-LIB_FLAGS =		-L $(LIBFT) -L $(X11)
+INC_FLAGS =		-I $(LIBFT) -I $(MLX)
+LIB_FLAGS =		-L $(LIBFT) -L $(X11) -L $(MLX) -lft -lmlx -lXext -lX11
 
 COMPILED =		main.o \
 				handle_fdf.o \
@@ -33,7 +34,7 @@ all: $(NAME)
 
 $(NAME): $(COMPILED)
 	@make -C $(LIBFT)
-	@$(CC) $(FLAGS) -o $(NAME) $(LIB_FLAGS) -lft -lmlx -lXext -lX11 $(COMPILED)
+	@$(CC) $(FLAGS) -o $(NAME) $(LIB_FLAGS) $(COMPILED)
 	@echo "made" $(NAME)
 
 $(COMPILED): %.o: %.c
