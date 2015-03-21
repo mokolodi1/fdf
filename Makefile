@@ -6,7 +6,7 @@
 #    By: tfleming <tfleming@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/04 17:52:57 by tfleming          #+#    #+#              #
-#    Updated: 2015/02/14 18:02:54 by tfleming         ###   ########.fr        #
+#    Updated: 2015/03/21 20:07:03 by tfleming         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -16,10 +16,11 @@ CC =			gcc
 FLAGS =			-Wall -Werror -Wextra
 LIBFT =			"libft/"
 X11 =			"/usr/X11/lib"
-MLX =			"minilibx/"
+MLX =			"minilibx_macos/"
 
 INC_FLAGS =		-I $(LIBFT) -I $(MLX)
-LIB_FLAGS =		-L $(LIBFT) -L $(X11) -L $(MLX) -lft -lmlx -lXext -lX11
+LIB_FLAGS =		-L $(LIBFT) -L $(X11) -L $(MLX) -lft -lmlx \
+				-framework OpenGL -framework AppKit
 
 COMPILED =		main.o \
 				handle_fdf.o \
