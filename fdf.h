@@ -64,8 +64,7 @@ typedef struct	s_drawer
 # define PIXEL_HEIGHT		1000
 # define PIXEL_WIDTH		1000
 
-# define KEY_ESC			65307
-# define KEY_SHIFT			65506
+# define KEY_ESC			53
 
 int				main(int argc, char **argv);
 void			handle_fdf(t_intarr *array, int pixel_width, int pixel_height);
